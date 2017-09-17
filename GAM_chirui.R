@@ -13,8 +13,8 @@ setwd("/Users/Huxtable/Desktop/chirui")
 ### Please input your parameters here !!!    #
 # please input you lagTime here              #
 #                                            #
-lagTime = 4                                  #
-movingTime = 7                               #
+lagTime = 7                                  #
+movingTime = 4                               #
 #                                            #
 #                                            #
 ##############################################
@@ -255,7 +255,7 @@ for(i in c(3:30)){
 }
 
 # the final lag model !!!
-lagModel <- gam(egvs_res ~ PM + Na + s(timeSeries, k = dfNum) + as.factor(emerData.dayofweek) + s(tmean, k = 3) + s(rhmean, k = 3), family = poisson, data = wholeData)
+lagModel <- gam(egvs_res ~ PM * Na + s(timeSeries, k = dfNum) + as.factor(emerData.dayofweek) + s(tmean, k = 3) + s(rhmean, k = 3), family = poisson, data = wholeData)
 
 # print the results on the screen
 summary(lagModel)
